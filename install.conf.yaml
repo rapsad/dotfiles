@@ -1,3 +1,17 @@
 - clean: []
-- link: {}
-- shell: []
+
+- link: {
+  ~/.gitconfig: gitconfig,
+  ~/.gitignore: gitignore,
+  ~/.vimrc: vimrc,
+  ~/.gemrc: gemrc,
+  ~/.aliases: aliases,
+  ~/.zshrc: zshrc
+}
+
+- create:
+  - ~/work
+  - ~/mine
+
+- shell:
+  - ['git submodule update --init --recursive', 'Installing submodules']

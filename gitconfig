@@ -1,0 +1,27 @@
+[color]
+  ui = true
+
+[alias]
+  b = branch
+  ci = commit
+  st = status
+  co = checkout
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[core]
+  autocrlf = false
+  editor = vim
+  eol = lf
+  excludesfile = ~/.gitignore
+  filemode = false
+
+[diff]
+  algorithm = patience
+  colorMoved = zebra
+
+[github]
+  user = rapsad
+
+[user]
+  email = devilzaba@gmail.com
+  name = Dawid Półchłopek
