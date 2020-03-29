@@ -1,13 +1,31 @@
-- clean: []
+- defaults:
+    link:
+      create: true
+      relink: true
+    shell:
+      stdout: true
+      stderr: true
 
-- link: {
-  ~/.gitconfig: gitconfig,
-  ~/.gitignore: gitignore,
-  ~/.vimrc: vimrc,
-  ~/.gemrc: gemrc,
-  ~/.aliases: aliases,
-  ~/.zshrc: zshrc
-}
+- shell:
+  - [sh pre-install.sh, Running pre installation script]
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.vimrc: vimrc
+    ~/.bashrc: bashrc
+    ~/.gemrc: gemrc
+    ~/.aliases: aliases
+    ~/.zshrc: zshconfig/zshrc
+    ~/.zshenv: zshconfig/zshenv
+    ~/.tmux.conf: tmux/tmux.conf
+
+
+# Subl3 config
+- link:
+    ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings: subl3/Ruby.sublime-settings
+    ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings: subl3/Preferences.sublime-settings
+
 
 - create:
   - ~/work

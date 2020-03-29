@@ -1,0 +1,9 @@
+{
+  "extensions":
+  [
+    "rake",
+    "simplecov",
+    "rb",
+    "podspec"
+  ]
+}
