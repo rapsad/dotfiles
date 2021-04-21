@@ -25,7 +25,8 @@
 - link:
     ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings: subl3/Ruby.sublime-settings
     ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings: subl3/Preferences.sublime-settings
-
+    ~/.config/sublime-text-3/Packages/User/JSON.sublime-settings: subl3/JSON.sublime-settings
+# sudo echo ; zcat <( CURRR_VER=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version') ; curl -q "https://releases.hashicorp.com/terraform/${CURRR_VER#?}/terraform_${CURRR_VER#?}_linux_amd64.zip" ) | sudo tee /usr/local/bin/terraform > /dev/null ; sudo chmod +x /usr/local/bin/terraform
 
 - create:
   - ~/work

@@ -25,3 +25,8 @@
 [user]
   email = devilzaba@gmail.com
   name = Dawid Półchłopek
+
+[pager]
+  branch = false
+[diff "sopsdiffer"]
+	textconv = sops -d
