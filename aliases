@@ -3,5 +3,7 @@ alias be="bundle exec"
 alias tf="terraform"
 alias git_local_delete="git branch --merged| egrep -v \"(^\*|master|production)\" | xargs git branch -d"
 alias k="kubectl"
-#alias helm3="helm"
+alias helm3="helm"
+
+alias kspark="kstg -nspark-operator"
 

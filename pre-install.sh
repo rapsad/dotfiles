@@ -11,3 +11,6 @@ else
   echo '=== update Oh-My-ZSH ==='
   env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
 fi
+
+# install rust with cargo
+curl https://sh.rustup.rs -sSf | sh

@@ -1,0 +1,8 @@
+
+# just for charts integrations
+
+helm3() {
+  helm "$@"
+}
+
+alias helm3='helm'

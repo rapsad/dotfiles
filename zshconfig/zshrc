@@ -1,3 +1,6 @@
+# Uncomment this line and this in last one to double check 
+# why zsh is loading so slow
+# zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -84,8 +87,12 @@ export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Additionall stuff for work in Placewise
 export PATH="$PATH:$HOME/work/kubernetes/scripts:$HOME/bin"
 source $HOME/work/kubernetes/scripts/functions
+
+export PW_USERNAME="dawid.polchlopek"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
@@ -110,6 +117,9 @@ helm3template () {
   helm template "$1" "$2" --output-dir ./generated_yamls -n "$3" -f values.yaml
 }
 
+export PW_FUNCTIONS="$HOME/work/kubernetes/scripts/functions"
+source $HOME/work/kubernetes/scripts/functions
+
 # aliases
 source $HOME/.aliases
 
@@ -119,10 +129,28 @@ source $HOME/.private_aliases
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 
+# Add default node to path (for speeedup"
+export PATH=~/.nvm/versions/node/v15.4.0/bin:$PATH
+
 # node version manager
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# option --no-use loads node much faster (remove if not needed)
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # golang version manager
 source $HOME/.gvm/scripts/gvm
+
+# groovy home setup (works on mac os)
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
+
+# Uncomment belows command why zsh is loading so slow
+# zprof
+
