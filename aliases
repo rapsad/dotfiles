@@ -7,3 +7,8 @@ alias helm3="helm"
 
 alias kspark="kstg -nspark-operator"
 
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias s="cd ~/s"
+alias p="cd ~/work"

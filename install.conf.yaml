@@ -12,6 +12,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.inputrc: inputrc
     ~/.vimrc: vimrc
     ~/.bashrc: bash/bashrc
     ~/.bash_aliases: bash/bash_aliases
@@ -20,7 +21,6 @@
     ~/.zshrc: zshconfig/zshrc
     ~/.zshenv: zshconfig/zshenv
     ~/.tmux.conf: tmux/tmux.conf
-
 
 # Subl3 config (ubuntu)
 # - link:
@@ -36,7 +36,10 @@
 
 - create:
   - ~/work
+  - ~/s
   - ~/mine
+  - ~/bin
+  - ~/screenshots
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']
