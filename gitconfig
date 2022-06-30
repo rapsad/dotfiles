@@ -19,14 +19,16 @@
   algorithm = patience
   colorMoved = zebra
 
+[includeIf "gitdir:~/s/"]
+  path = .gitconfig-work
+[includeIf "gitdir:~/mine/"]
+  path = .gitconfig-personal
+
 [github]
   user = rapsad
-
 [user]
   email = devilzaba@gmail.com
   name = Dawid Półchłopek
 
 [pager]
   branch = false
-[diff "sopsdiffer"]
-	textconv = sops -d
