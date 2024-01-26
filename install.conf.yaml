@@ -6,8 +6,15 @@
       stdout: true
       stderr: true
 
-- shell:
-  - [sh pre-install.sh, Running pre installation script]
+- create:
+  - ~/work
+  - ~/s
+  - ~/mine
+  - ~/bin
+  - ~/screenshots
+
+# - shell:
+#   - [sh pre-install.sh, Running pre installation script]
 
 - link:
     ~/.gitconfig: gitconfig
@@ -18,6 +25,7 @@
     ~/.bash_aliases: bash/bash_aliases
     ~/.gemrc: gemrc
     ~/.aliases: aliases
+    ~/zsh.d: zshconfig/zsh.d
     ~/.zshrc: zshconfig/zshrc
     ~/.zshenv: zshconfig/zshenv
     ~/.tmux.conf: tmux/tmux.conf
@@ -33,13 +41,6 @@
     ~/Library/Application Support/Sublime Text 3/Packages/User/Ruby.sublime-settings: subl3/Ruby.sublime-settings
     ~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings: subl3/Preferences.sublime-settings
     ~/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings: subl3/JSON.sublime-settings
-
-- create:
-  - ~/work
-  - ~/s
-  - ~/mine
-  - ~/bin
-  - ~/screenshots
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']

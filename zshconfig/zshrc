@@ -1,125 +1,53 @@
-
-# Uncomment this line and this in last one to double check 
+# Uncomment this line and this in last one to double check
 # why zsh is loading so slow
 # zmodload zsh/zprof
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-#
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby command-not-found)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 export EDITOR='vim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+###################
+# history searching setup
+###################
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=50000
+HISTSIZE=50000
 
-# Additionall stuff for work in Placewise
-export PATH="$PATH:$HOME/work/kubernetes/scripts:$HOME/bin"
-source $HOME/work/kubernetes/scripts/functions
+setopt INC_APPEND_HISTORY     # Immediately append to history file
+setopt EXTENDED_HISTORY       # Record timestamp in history
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history
+setopt HIST_IGNORE_DUPS       # Dont record an entry that was just recorded again
+setopt HIST_IGNORE_ALL_DUPS   # Delete old recorded entry if new entry is a duplicate
+setopt HIST_FIND_NO_DUPS      # Do not display a line previously found
+setopt HIST_IGNORE_SPACE      # Dont record an entry starting with a space:
+setopt HIST_SAVE_NO_DUPS      # Dont write duplicate entries in the history file:
+setopt SHARE_HISTORY          # Share history between all sessions:
+unsetopt HIST_VERIFY          # Execute commands using history (e.g.: using !$) immediatel:
 
-export PW_USERNAME="dawid.polchlopek"
+# git plugin
+source $HOME/zsh.d/git.plugin.zsh
 
+# prompt customization
+autoload -Uz vcs_info
+precmd() { vcs_info }
+autoload colors && colors
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+zstyle ':vcs_info:git:*' formats '(%b) '
+
+setopt PROMPT_SUBST
+
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT+=' $(git_prompt_info)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
+# ruby setup
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/rapsad/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/home/rapsad/anaconda3/etc/profile.d/conda.sh" ]; then
-#        . "/home/rapsad/anaconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/home/rapsad/anaconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
-# <<< conda initialize <<<
-
-helm3template () {
-  rm -rf ./generated_yamls
-  mkdir ./generated_yamls
-  helm template "$1" "$2" --output-dir ./generated_yamls -n "$3" -f values.yaml
-}
-
-export PW_FUNCTIONS="$HOME/work/kubernetes/scripts/functions"
-source $HOME/work/kubernetes/scripts/functions
+eval "$(rbenv init - --no-rehash)" # after installing ruby run: rbenv rehash
 
 # aliases
 source $HOME/.aliases
@@ -152,9 +80,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
 fi
 
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# Below removed brew --prefix openssl@1.1 because it's taking 10ms to load
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$(brew --prefix openssl@1.1)/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
@@ -167,7 +96,8 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # Uncomment belows command why zsh is loading so slow
 # zprof
-
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# END OF FILE
