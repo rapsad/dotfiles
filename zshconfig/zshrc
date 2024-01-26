@@ -120,6 +120,28 @@ bindkey '^?' backward-delete-char
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# fzf
+# fzf via Homebrew
+if [ -e /opt/homebrew/opt/fzf/shell/completion.zsh ]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+  source /opt/homebrew/opt/fzf/shell/completion.zsh
+else
+  # fzf via local installation
+  if [ -e ~/.fzf ]; then
+    source ~/.fzf/shell/key-bindings.zsh
+    source ~/.fzf/shell/completion.zsh
+    if [[ ! "$PATH" == *$HOME.fzf/bin* ]]; then
+      export PATH="$PATH:$HOME/.fzf/bin"
+    fi
+  fi
+fi
+
+if type fzf &> /dev/null && type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+  export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+
 # Uncomment belows command why zsh is loading so slow
 # zprof
 # END OF FILE
