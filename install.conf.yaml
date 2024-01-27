@@ -13,8 +13,8 @@
   - ~/bin
   - ~/screenshots
 
-# - shell:
-#   - [sh pre-install.sh, Running pre installation script]
+- shell:
+  - [sh pre-install.sh, Running pre installation script]
 
 - link:
     ~/.gitconfig: gitconfig
@@ -30,17 +30,20 @@
     ~/.zshenv: zshconfig/zshenv
     ~/.tmux.conf: tmux/tmux.conf
 
-# Subl3 config (ubuntu)
+
+# Subl4 config (ubuntu)
 # - link:
 #     ~/.config/sublime-text-3/Packages/User/Ruby.sublime-settings: subl3/Ruby.sublime-settings
 #     ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings: subl3/Preferences.sublime-settings
 #     ~/.config/sublime-text-3/Packages/User/JSON.sublime-settings: subl3/JSON.sublime-settings
 # sudo echo ; zcat <( CURRR_VER=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version') ; curl -q "https://releases.hashicorp.com/terraform/${CURRR_VER#?}/terraform_${CURRR_VER#?}_linux_amd64.zip" ) | sudo tee /usr/local/bin/terraform > /dev/null ; sudo chmod +x /usr/local/bin/terraform
-# subl3 config (macos)
+
+# subl4 config (macos)
 - link:
-    ~/Library/Application Support/Sublime Text 3/Packages/User/Ruby.sublime-settings: subl3/Ruby.sublime-settings
-    ~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings: subl3/Preferences.sublime-settings
-    ~/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings: subl3/JSON.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/Ruby.sublime-settings: subl4/Ruby.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: subl4/Preferences.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/JSON.sublime-settings: subl4/JSON.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/Package\ Control.sublime-settings: subl4/PackageControl.sublime-settings
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']

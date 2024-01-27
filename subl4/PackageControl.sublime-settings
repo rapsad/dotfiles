@@ -1,0 +1,16 @@
+{
+	"bootstrapped": true,
+	"installed_packages":
+	[
+		"GitGutter",
+		"LSP",
+		"LSP-copilot",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"Terrafmt",
+	],
+	"in_process_packages":
+	[
+	],
+}
