@@ -20,9 +20,8 @@ If you previously run version with ohmyzsh you need to run [this](https://github
 Instalation (ubuntu):
 -------
 
-1. Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
-2. Install [rbenv](https://github.com/rbenv/rbenv)
-3. Install subllime text
+1. Install [rbenv](https://github.com/rbenv/rbenv)
+2. Install sublime text
 
 Run next:
 -------
