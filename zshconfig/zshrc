@@ -68,7 +68,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 # ruby setup
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - --no-rehash)" # after installing ruby run: rbenv rehash
+eval "$(~/.rbenv/bin/rbenv init - zsh --no-rehash)" # after installing ruby run: rbenv rehash
 
 # aliases
 source $HOME/.aliases
@@ -86,14 +86,6 @@ export PATH=~/.nvm/versions/node/v15.4.0/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 # option --no-use loads node much faster (remove if not needed)
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-
-# golang version manager
-source $HOME/.gvm/scripts/gvm
-
-# groovy home setup (works on mac os)
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -139,4 +131,5 @@ fi
 
 # Uncomment belows command why zsh is loading so slow
 # zprof
-# END OF FILE
+# END OF FILE-e
+
