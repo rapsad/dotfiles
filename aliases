@@ -12,3 +12,5 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias s="cd ~/s"
 alias p="cd ~/work"
+
+alias reload!='source ~/.zshrc'
