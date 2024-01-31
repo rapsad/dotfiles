@@ -79,6 +79,7 @@ function git_current_branch() {
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
+alias gco='git checkout'
 alias gst='git status'
 alias gss='git status --short'
 alias ggpull='git pull origin "$(git_current_branch)"'
