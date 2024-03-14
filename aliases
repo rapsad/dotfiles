@@ -6,6 +6,7 @@ alias k="kubectl"
 alias helm3="helm"
 
 alias ll="ls -alh"
+alias subln="subl -n ."
 
 alias kspark="kstg -nspark-operator"
 
