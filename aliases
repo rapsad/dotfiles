@@ -5,6 +5,8 @@ alias git_local_delete="git branch --merged| egrep -v \"(^\*|master|production)\
 alias k="kubectl"
 alias helm3="helm"
 
+alias ll="ls -alh"
+
 alias kspark="kstg -nspark-operator"
 
 # Shortcuts

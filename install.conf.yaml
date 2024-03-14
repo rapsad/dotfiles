@@ -29,6 +29,8 @@
     ~/.zshrc: zshconfig/zshrc
     ~/.zshenv: zshconfig/zshenv
     ~/.tmux.conf: tmux/tmux.conf
+    ~/work/.gitconfig-work: git/gitconfig-work
+    ~/s/.gitconfig-work: git/gitconfig-work
 
 
 # Subl4 config (ubuntu)

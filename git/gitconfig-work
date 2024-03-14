@@ -1,0 +1,8 @@
+# ~/personal/.gitconfig-work
+ 
+[user]
+  email = dawid.polchlopek@airhelp.com
+  name = Dawid Półchłopek
+ 
+[github]
+  user = rapsad
