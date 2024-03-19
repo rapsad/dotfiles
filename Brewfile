@@ -75,6 +75,7 @@ brew 'pcre2'
 brew 'readline'
 brew 'wget'
 brew 'gh'
+brew 'solargraph'
 
 # cask 'slack'
 # cask 'iterm2'
