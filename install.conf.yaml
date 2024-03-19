@@ -7,14 +7,16 @@
       stderr: true
 
 - create:
-  - ~/work
-  - ~/s
-  - ~/mine
-  - ~/bin
-  - ~/screenshots
+    - ~/work
+    - ~/s
+    - ~/mine
+    - ~/bin
+    - ~/screenshots
+    - ~/.config
+    - ~/.config/zed
 
 - shell:
-  - [sh pre-install.sh, Running pre installation script]
+    - [sh pre-install.sh, Running pre installation script]
 
 - link:
     ~/.gitconfig: gitconfig
@@ -31,7 +33,7 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/work/.gitconfig-work: git/gitconfig-work
     ~/s/.gitconfig-work: git/gitconfig-work
-
+    ~/.config/zed/settings.json: zed_settings.json
 
 # Subl4 config (ubuntu)
 # - link:
@@ -48,4 +50,4 @@
     ~/Library/Application Support/Sublime Text/Packages/User/Package\ Control.sublime-settings: subl4/PackageControl.sublime-settings
 
 - shell:
-  - ['git submodule update --init --recursive', 'Installing submodules']
+    - ["git submodule update --init --recursive", "Installing submodules"]
