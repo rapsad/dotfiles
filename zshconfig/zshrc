@@ -82,7 +82,7 @@ source $HOME/.private_aliases
 export PATH="$HOME/.serverless/bin:$PATH"
 
 # Add default node to path (for speedup)"
-export PATH="$HOME/.nvm/versions/node/v15.4.0/bin:$PATH"
+export PATH="$HOME/.nvm/versions/node/v18.10.0/bin/:$PATH"
 
 # node version manager
 export NVM_DIR="$HOME/.nvm"
