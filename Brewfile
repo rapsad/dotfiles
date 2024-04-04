@@ -76,6 +76,7 @@ brew 'readline'
 brew 'wget'
 brew 'gh'
 brew 'solargraph'
+brew 'duckdb'
 
 # cask 'slack'
 # cask 'iterm2'
