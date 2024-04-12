@@ -47,7 +47,7 @@
     ~/Library/Application Support/Sublime Text/Packages/User/Ruby.sublime-settings: subl4/Ruby.sublime-settings
     ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: subl4/Preferences.sublime-settings
     ~/Library/Application Support/Sublime Text/Packages/User/JSON.sublime-settings: subl4/JSON.sublime-settings
-    ~/Library/Application Support/Sublime Text/Packages/User/Package\ Control.sublime-settings: subl4/PackageControl.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings: subl4/PackageControl.sublime-settings
 
 - shell:
     - ["git submodule update --init --recursive", "Installing submodules"]
