@@ -77,6 +77,7 @@ brew 'wget'
 brew 'gh'
 brew 'solargraph'
 brew 'duckdb'
+brew 'pyenv'
 
 # cask 'slack'
 # cask 'iterm2'
