@@ -27,10 +27,10 @@
   name = Dawid Półchłopek
 
 [includeIf "gitdir:~/s/"]
-  path = .gitconfig-work
+  path = ~/.gitconfig-work
 
 [includeIf "gitdir:~/work/"]
-  path = .gitconfig-work
+  path = ~/.gitconfig-work
 
 [pager]
   branch = false
