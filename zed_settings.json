@@ -7,8 +7,27 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "assistant": {
+    "default_model": {
+      "provider": "openai",
+      "model": "gpt-3.5-turbo"
+    },
+    "version": "2",
+    "default_open_ai_model": null,
+    "provider": {
+      "name": "openai",
+      "default_model": "gpt-3.5-turbo",
+      "available_models": []
+    }
+  },
+  "show_inline_completions": true,
   "theme": "Atelier Dune Dark",
   "ui_font_size": 14,
   "buffer_font_size": 14,
-  "tab_size": 2
+  "tab_size": 2,
+  "file_types": {
+    "JavaScript": ["*.es6"],
+    "Dockerfile": ["Dockerfile*"],
+    "Ruby": ["*.slim", "*.rb"]
+  }
 }

@@ -32,6 +32,11 @@
 [includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
 
+# TODO
+# always sign commits with gpg
+# [commit]
+#     gpgsign = true
+
 [pager]
   branch = false
 
