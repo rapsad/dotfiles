@@ -41,4 +41,13 @@
   branch = false
 
 [url "git@github.com:"]
-  insteadOf = https://github.com/
+	insteadOf = https://github.com/
+
+[url "https://$GITHUB_TOKEN:x-oauth-basic@github.com/AirHelp"]
+  insteadOf = https://github.com/AirHelp
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

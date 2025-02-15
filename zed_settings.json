@@ -9,8 +9,8 @@
 {
   "assistant": {
     "default_model": {
-      "provider": "openai",
-      "model": "gpt-3.5-turbo"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
     },
     "version": "2",
     "default_open_ai_model": null,
@@ -18,6 +18,21 @@
       "name": "openai",
       "default_model": "gpt-3.5-turbo",
       "available_models": []
+    }
+  },
+  "languages": {
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "!solargraph"]
+    }
+  },
+  "lsp": {
+    "ruby-lsp": {
+      "initialization_options": {
+        "enabledFeatures": {
+          // This disables diagnostics
+          "diagnostics": false
+        }
+      }
     }
   },
   "show_inline_completions": true,
@@ -29,5 +44,6 @@
     "JavaScript": ["*.es6"],
     "Dockerfile": ["Dockerfile*"],
     "Ruby": ["*.slim", "*.rb"]
-  }
+  },
+  "format_on_save": "off"
 }

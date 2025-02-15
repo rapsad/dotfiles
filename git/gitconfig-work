@@ -1,3 +1,4 @@
+
 # ~/.gitconfig-work
 
 [user]
@@ -6,3 +7,6 @@
 
 [github]
   user = rapsad
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/

@@ -100,8 +100,8 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
@@ -133,6 +133,18 @@ if type fzf &> /dev/null && type rg &> /dev/null; then
   export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
+
+#
+# go lang setup
+#
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+#
+# python setup
+# in order to install python unversionned aliases
+# https://docs.brew.sh/Homebrew-and-Python
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 # Uncomment belows command why zsh is loading so slow
 # zprof
