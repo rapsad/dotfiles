@@ -146,6 +146,9 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 # https://docs.brew.sh/Homebrew-and-Python
 export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/dawidpolchlopek/.lmstudio/bin"
+
 # Uncomment belows command why zsh is loading so slow
 # zprof
 # END OF FILE-e

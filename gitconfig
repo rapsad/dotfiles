@@ -7,6 +7,12 @@
   st = status
   co = checkout
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  bb = "!f() { \
+      printf '%-30s | %-20s | %-20s | %-50s\n' 'Branch Name' 'Last Commit Date' 'Last Commit Author' 'Last Commit Message'; \
+      printf '%-30s-+-%-20s-+-%-20s-+-%-50s\n' '------------------------------' '--------------------' '--------------------' '--------------------------------------------------'; \
+      git for-each-ref --sort=-committerdate --format='%(refname:short)|%(committerdate:short)|%(authorname)|%(contents:subject)' refs/heads/ | \
+      column -s '|' -t; \
+  }; f"
 
 [core]
   autocrlf = false
@@ -46,8 +52,8 @@
 [url "https://$GITHUB_TOKEN:x-oauth-basic@github.com/AirHelp"]
   insteadOf = https://github.com/AirHelp
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
