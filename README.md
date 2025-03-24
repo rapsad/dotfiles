@@ -27,13 +27,30 @@ Run next:
 -------
 `./install`
 
+Adding signing commits with ssh:
+-------
+```sh
+git config --global gpg.format ssh
+git config --global user.signingkey <key>
+```
+
 TODO:
 Polish Brewfile which will allow to install all needed programs from brew
 Can be Brewfile.lock.json or something like this?
+Check:
+```sh
+git add $FILES_YOU_FIXED
+git absorb --and-rebase
+```
+aand this:
+```sh
+git add $FILES_YOU_FIXED
+git absorb
+git log # check the auto-generated fixup commits
+git rebase -i --autosquash master
+```
 
 QUESTIONS:
-Do I really need ohmyzsh?
-
 Installing with homebrew
 
 ```
