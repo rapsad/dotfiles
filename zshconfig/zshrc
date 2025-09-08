@@ -82,7 +82,7 @@ source $HOME/.private_aliases
 export PATH="$HOME/.serverless/bin:$PATH"
 
 # Add default node to path (for speedup)"
-export PATH="$HOME/.nvm/versions/node/v18.10.0/bin/:$PATH"
+export PATH="$HOME/.nvm/versions/node/v20.11.1/bin/:$PATH"
 
 # node version manager
 export NVM_DIR="$HOME/.nvm"
@@ -152,3 +152,4 @@ export PATH="$PATH:/Users/dawidpolchlopek/.lmstudio/bin"
 # Uncomment belows command why zsh is loading so slow
 # zprof
 # END OF FILE-e
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

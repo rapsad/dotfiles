@@ -31,17 +31,13 @@
 [user]
   email = devilzaba@gmail.com
   name = Dawid Półchłopek
+	signingkey = ~/.ssh/id_ed25519.pub
 
 [includeIf "gitdir:~/s/"]
   path = ~/.gitconfig-work
 
 [includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
-
-# TODO
-# always sign commits with gpg
-# [commit]
-#     gpgsign = true
 
 [pager]
   branch = false
@@ -57,3 +53,7 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
