@@ -45,7 +45,7 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-[url "https://$GITHUB_TOKEN:x-oauth-basic@github.com/AirHelp"]
+[url "https://GITHUB_TOKEN:x-oauth-basic@github.com/AirHelp"]
   insteadOf = https://github.com/AirHelp
 [credential "https://github.com"]
 	helper =
