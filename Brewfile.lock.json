@@ -3243,45 +3243,6 @@
           }
         }
       },
-      "opensearch": {
-        "version": "2.17.0",
-        "bottle": {
-          "rebuild": 0,
-          "root_url": "https://ghcr.io/v2/homebrew/core",
-          "files": {
-            "arm64_sequoia": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:ed3ec14eb26e1330288b9187999e92fd24bb57ca197bb04d9f36c24cdd3fc54e",
-              "sha256": "ed3ec14eb26e1330288b9187999e92fd24bb57ca197bb04d9f36c24cdd3fc54e"
-            },
-            "arm64_sonoma": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:489f45c48258b6a4e2892c4bc11dbcf740b4a82490e70ee42bd1c209a96b1378",
-              "sha256": "489f45c48258b6a4e2892c4bc11dbcf740b4a82490e70ee42bd1c209a96b1378"
-            },
-            "arm64_ventura": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:6369e4b29a325a4c2dad440bd281c1bbdc08c6e0838a6dc0c92f99a495e74df0",
-              "sha256": "6369e4b29a325a4c2dad440bd281c1bbdc08c6e0838a6dc0c92f99a495e74df0"
-            },
-            "sonoma": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:54d09deadd49d3ac1988c3ae596c0f84b4d086b1420aa69c6cddf27bbcbddc8e",
-              "sha256": "54d09deadd49d3ac1988c3ae596c0f84b4d086b1420aa69c6cddf27bbcbddc8e"
-            },
-            "ventura": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:d9edc7bcec7b521ce01003b7c7925ce656c2a2fe7492b87dac18041c5695dc6c",
-              "sha256": "d9edc7bcec7b521ce01003b7c7925ce656c2a2fe7492b87dac18041c5695dc6c"
-            },
-            "x86_64_linux": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/opensearch/blobs/sha256:1b66d042f32c6604bcf1ec127b79fe3bc26d4028c9733e62c66ff74acc4250d0",
-              "sha256": "1b66d042f32c6604bcf1ec127b79fe3bc26d4028c9733e62c66ff74acc4250d0"
-            }
-          }
-        }
-      },
       "colima": {
         "version": "0.7.5",
         "bottle": {
