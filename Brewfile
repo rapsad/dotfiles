@@ -78,6 +78,7 @@ brew 'solargraph'
 brew 'duckdb'
 brew 'pyenv'
 brew 'git-absorb'
+brew 'lazygit'
 
 # cask 'slack'
 # cask 'iterm2'
