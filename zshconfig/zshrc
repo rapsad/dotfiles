@@ -106,6 +106,7 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
+bindkey '^[[Z' reverse-menu-complete
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
