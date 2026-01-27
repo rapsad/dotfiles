@@ -153,5 +153,5 @@ export PATH="$PATH:/Users/dawidpolchlopek/.lmstudio/bin"
 # Uncomment belows command why zsh is loading so slow
 # zprof
 # END OF FILE-e
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # export PATH="/opt/homebrew/opt/gradle@8/bin:$PATH"
