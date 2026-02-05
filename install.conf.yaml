@@ -33,6 +33,7 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.gitconfig-work: git/gitconfig-work
     ~/.config/zed/settings.json: zed_settings.json
+    ~/.config/ghostty/config: ghostty_config
 
 # Subl4 config (ubuntu)
 # - link:
