@@ -88,3 +88,10 @@ alias glola='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgr
 alias glols='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
 alias glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
 alias glo='git log --oneline --decorate'
+
+###########
+# Completions for aliases
+###########
+
+compdef _git gco=git-checkout
+compdef _git gb=git-branch
