@@ -29,7 +29,7 @@ unsetopt HIST_VERIFY          # Execute commands using history (e.g.: using !$) 
 # Add completions installed through Homebrew packages
 # See: https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
-  FPATH=/usr/local/share/zsh/site-functions:$FPATH
+  FPATH=/opt/homebrew/share/zsh/site-functions:$FPATH
 fi
 
 autoload -Uz compinit && compinit
@@ -155,3 +155,6 @@ export PATH="$PATH:/Users/dawidpolchlopek/.lmstudio/bin"
 # END OF FILE-e
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # export PATH="/opt/homebrew/opt/gradle@8/bin:$PATH"
+
+# opencode
+export PATH=/Users/dawid.polchlopek/.opencode/bin:$PATH
