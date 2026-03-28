@@ -20,6 +20,16 @@
   eol = lf
   excludesfile = ~/.gitignore
   filemode = false
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+  syntax-theme = Monokai Extended
 
 [diff]
   algorithm = patience
@@ -31,7 +41,7 @@
 [user]
   email = devilzaba@gmail.com
   name = Dawid Półchłopek
-	signingkey = ~/.ssh/id_ed25519_singing_key_github.pub
+	signingkey = ~/.ssh/id_ed25519_signing_key_github.pub
 
 [includeIf "gitdir:~/s/"]
   path = ~/.gitconfig-work

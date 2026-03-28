@@ -7,12 +7,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "assistant": {
+  "agent_servers": {
+    "claude": {
+      "favorite_models": [
+        "sonnet"
+      ],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
+    }
+  },
+  "agent": {
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4o"
     },
-    "version": "2",
     "default_open_ai_model": null,
     "provider": {
       "name": "openai",

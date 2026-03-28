@@ -14,6 +14,7 @@
     - ~/screenshots
     - ~/.config
     - ~/.config/zed
+    - ~/.config/bat
 
 - shell:
     - [sh pre-install.sh, Running pre installation script]
@@ -34,6 +35,7 @@
     ~/.gitconfig-work: git/gitconfig-work
     ~/.config/zed/settings.json: zed_settings.json
     ~/.config/ghostty/config: ghostty_config
+    ~/.config/bat/config: bat/config
 
 # Subl4 config (ubuntu)
 # - link:

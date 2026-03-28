@@ -80,6 +80,19 @@ brew 'pyenv'
 brew 'git-absorb'
 brew 'lazygit'
 
+# --- Tools for improved development workflow ---
+brew 'tmux'           # terminal multiplexer (tmux.conf is in dotfiles but tmux was missing)
+brew 'fd'             # fast file finder, supercharges fzf
+brew 'bat'            # syntax-highlighted cat, used by fzf previews and MANPAGER
+brew 'git-delta'      # rich syntax-highlighted git diffs as pager
+brew 'yq'             # YAML processor (complement to jq, for k8s/helm/airflow configs)
+brew 'helm'           # kubernetes package manager
+brew 'k9s'            # kubernetes terminal UI
+brew 'terraform'      # infrastructure as code
+brew 'shellcheck'     # shell script linter
+brew 'hadolint'       # dockerfile linter
+brew 'actionlint'     # github actions workflow linter
+
 # cask 'slack'
 # cask 'iterm2'
 cask 'visual-studio-code'
