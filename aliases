@@ -10,6 +10,8 @@ alias subln="subl -n ."
 
 alias kspark="kstg -nspark-operator"
 
+alias c="claude"
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"

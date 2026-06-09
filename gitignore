@@ -48,3 +48,5 @@ Session.vim
 .tool-versions
 tags.temp
 tags.lock
+
+**/.claude/settings.local.json
