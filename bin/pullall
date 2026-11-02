@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# Fast-forward the default branch (main/master) of every git repo in a folder.
+#
+# Usage: pullall [ROOT_DIR] [JOBS]
+#   ROOT_DIR  folder containing repos (default: ~/work)
+#   JOBS      parallel jobs (default: 8)
+#
+# - Only the default branch is fetched (no other branches, no tags).
+# - Never switches branches: if you're on another branch, the local
+#   main/master ref is fast-forwarded in place.
+# - Fast-forward only: diverged branches are reported, never merged.
+
+set -uo pipefail
+
+ROOT="${1:-$HOME/work}"
+JOBS="${2:-8}"
+
+export GIT_TERMINAL_PROMPT=0 # fail instead of hanging on auth prompts
+
+update_repo() {
+  local repo="$1" name branch current out
+  name="$(basename "$repo")"
+
+  if ! git -C "$repo" remote get-url origin &>/dev/null; then
+    printf '\033[33m%-40s skip (no origin)\033[0m\n' "$name"
+    return 0
+  fi
+
+  # Default branch: origin/HEAD if known, otherwise local master, then main.
+  branch="$(git -C "$repo" symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null)"
+  branch="${branch#origin/}"
+  if [[ -z "$branch" ]]; then
+    for b in master main; do
+      if git -C "$repo" show-ref --verify --quiet "refs/heads/$b"; then
+        branch="$b"; break
+      fi
+    done
+  fi
+  if [[ -z "$branch" ]]; then
+    printf '\033[33m%-40s skip (no master/main)\033[0m\n' "$name"
+    return 0
+  fi
+
+  current="$(git -C "$repo" symbolic-ref --quiet --short HEAD 2>/dev/null)"
+
+  if [[ "$current" == "$branch" ]]; then
+    out="$(git -C "$repo" pull --ff-only --no-tags --quiet origin "$branch" 2>&1)"
+  else
+    # Updates refs/heads/$branch without checkout; refuses non-fast-forward.
+    out="$(git -C "$repo" fetch --no-tags --quiet origin "$branch:$branch" 2>&1)"
+  fi
+
+  if [[ $? -eq 0 ]]; then
+    printf '\033[32m%-40s ok   (%s%s)\033[0m\n' "$name" "$branch" \
+      "$([[ "$current" != "$branch" ]] && echo ", on ${current:-detached}")"
+  else
+    printf '\033[31m%-40s FAIL (%s)\033[0m\n' "$name" "$branch"
+    sed 's/^/    /' <<<"$out"
+    return 1
+  fi
+}
+export -f update_repo
+
+find "$ROOT" -mindepth 2 -maxdepth 2 -name .git -print0 \
+  | xargs -0 -n1 dirname \
+  | sort \
+  | tr '\n' '\0' \
+  | xargs -0 -P "$JOBS" -I{} bash -c 'update_repo "$1"' _ {}

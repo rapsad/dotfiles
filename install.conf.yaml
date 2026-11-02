@@ -36,6 +36,7 @@
     ~/.config/zed/settings.json: zed_settings.json
     ~/.config/ghostty/config: ghostty_config
     ~/.config/bat/config: bat/config
+    ~/bin/pullall: bin/pullall
 
 # Subl4 config (ubuntu)
 # - link:
