@@ -68,10 +68,6 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
-# ruby setup
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(~/.rbenv/bin/rbenv init - zsh --no-rehash)" # after installing ruby run: rbenv rehash
-
 # aliases
 source $HOME/.aliases
 
@@ -112,6 +108,10 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin/:$PATH"
+
+# ruby setup
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - zsh --no-rehash)" # after installing ruby run: rbenv rehash
 
 # fzf
 # fzf via Homebrew
