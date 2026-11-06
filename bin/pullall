@@ -18,7 +18,7 @@ JOBS="${2:-8}"
 export GIT_TERMINAL_PROMPT=0 # fail instead of hanging on auth prompts
 
 update_repo() {
-  local repo="$1" name branch current out
+  local repo="$1" name branch current out before after rc on count
   name="$(basename "$repo")"
 
   if ! git -C "$repo" remote get-url origin &>/dev/null; then
@@ -42,6 +42,7 @@ update_repo() {
   fi
 
   current="$(git -C "$repo" symbolic-ref --quiet --short HEAD 2>/dev/null)"
+  before="$(git -C "$repo" rev-parse --verify --quiet "refs/heads/$branch")"
 
   if [[ "$current" == "$branch" ]]; then
     out="$(git -C "$repo" pull --ff-only --no-tags --quiet origin "$branch" 2>&1)"
@@ -49,14 +50,25 @@ update_repo() {
     # Updates refs/heads/$branch without checkout; refuses non-fast-forward.
     out="$(git -C "$repo" fetch --no-tags --quiet origin "$branch:$branch" 2>&1)"
   fi
+  rc=$?
 
-  if [[ $? -eq 0 ]]; then
-    printf '\033[32m%-40s ok   (%s%s)\033[0m\n' "$name" "$branch" \
-      "$([[ "$current" != "$branch" ]] && echo ", on ${current:-detached}")"
-  else
+  if [[ $rc -ne 0 ]]; then
     printf '\033[31m%-40s FAIL (%s)\033[0m\n' "$name" "$branch"
     sed 's/^/    /' <<<"$out"
     return 1
+  fi
+
+  after="$(git -C "$repo" rev-parse --verify --quiet "refs/heads/$branch")"
+  on="$([[ "$current" != "$branch" ]] && echo ", on ${current:-detached}")"
+
+  if [[ "$before" == "$after" ]]; then
+    printf '\033[2m%-40s --   up to date (%s%s)\033[0m\n' "$name" "$branch" "$on"
+  elif [[ -z "$before" ]]; then
+    printf '\033[32m%-40s new  created %s at %s%s\033[0m\n' "$name" "$branch" "${after:0:7}" "$on"
+  else
+    count="$(git -C "$repo" rev-list --count "$before..$after")"
+    printf '\033[32m%-40s PULL %s +%s commit(s) %s..%s%s\033[0m\n' "$name" "$branch" \
+      "$count" "${before:0:7}" "${after:0:7}" "$on"
   fi
 }
 export -f update_repo
